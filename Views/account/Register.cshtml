@@ -1,0 +1,8 @@
+﻿@model ReceitaMx.Requests.RegisterRequest
+
+<form asp-action="RegisterRequest" method="post">
+    <input type="text" asp-for="UserName" placeholder="Username">
+    <input type="email" asp-for="Email" placeholder="E-mail">
+    <input type="password" asp-for="Password" placeholder="Password">
+    <input type="submit" value="Registrar-se" class="btn btn-success">
+</form>

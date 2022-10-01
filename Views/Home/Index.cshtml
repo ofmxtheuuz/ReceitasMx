@@ -1,0 +1,35 @@
+﻿@using ReceitaMx.ViewModels
+@using NuGet.Protocol.Plugins
+@model ReceitaMx.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Seja bem-vindo as nossas receitas</h1>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-controller="account" asp-action="Dashboard">Ir para a página administrativa</a>
+        }
+        @foreach (var item in User.Claims)
+        {
+            <span>@item.Type: @item.Value</span>
+        }
+    }
+    else
+    {
+        <a asp-controller="account" asp-action="Register">Ainda não possui uma conta? Registre-se já</a><br/>
+        <a asp-controller="account" asp-action="Login">Já possui uma conta? Entrar agora</a>
+    }
+    <div class="mt-5">
+        <div class="d-flex">
+        @foreach (var rec in Model.receitas)
+        {
+            <partial name="ViewReceita" for="@rec"/>
+        }
+        </div>
+    </div>
+</div>

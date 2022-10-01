@@ -1,0 +1,61 @@
+@model IEnumerable<ReceitaMx.Models.Receita>
+
+@{
+    ViewData["Title"] = "Todas as receitas";
+}
+
+<h1>Página inicial</h1>
+
+<p>
+    <a asp-action="Create">Criar uma nova receita</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guide)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SendDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Guide)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SendDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReceitaId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ReceitaId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReceitaId">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-controller="account" asp-action="Dashboard">Voltar</a>

@@ -1,0 +1,8 @@
+﻿@model ReceitaMx.Requests.LoginRequest
+
+<form asp-action="LoginRequest" method="post">
+    <input type="text" asp-for="UserName" placeholder="Username">
+    <input type="checkbox" asp-for="Logued"> Manter me logado?
+    <input type="password" asp-for="Password" placeholder="Password">
+    <input type="submit" value="Entrar" class="btn btn-success">
+</form>

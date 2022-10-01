@@ -1,0 +1,16 @@
+﻿@model ReceitaMx.Models.Receita
+
+<div class="card mx-2" style="width: 26rem;">
+  <div class="card-header">
+    @Model.Title<hr/>
+    @Model.Categoria.Title
+  </div>
+  <div class="card-body">
+    <p class="card-text">@Model.Description</p>
+    <a href="#" class="btn btn-primary">Quero fazer!</a>
+  </div>
+  
+    <div class="card-footer text-muted">
+      @Model.SendDate.ToString("dddd, dd MMMM yyyy")
+    </div>
+  </div>

@@ -22,7 +22,7 @@ public class accountController : Controller
 
     
     
-    [Route("login")]
+    [HttpGet("login")]
     public async Task<IActionResult> Login()
     {
         /*

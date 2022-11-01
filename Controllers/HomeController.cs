@@ -16,7 +16,7 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
+    public ActionResult Index()
     {
         return View(new HomeViewModel()
         {

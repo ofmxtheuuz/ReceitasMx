@@ -27,6 +27,7 @@ public class HomeController : Controller
 
     public IActionResult Privacy()
     {
+        // privacy test
         return View();
     }
 

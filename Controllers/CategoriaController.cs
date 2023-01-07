@@ -21,7 +21,6 @@ namespace ReceitaMx.Controllers
             _context = context;
         }
 
-        // GET: Categoria
         public async Task<IActionResult> Index()
         {
               return _context.Categorias != null ? 
@@ -29,7 +28,6 @@ namespace ReceitaMx.Controllers
                           Problem("Entity set 'AppDbContext.Categorias'  is null.");
         }
 
-        // GET: Categoria/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Categorias == null)
@@ -47,15 +45,11 @@ namespace ReceitaMx.Controllers
             return View(categoria);
         }
 
-        // GET: Categoria/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Categoria/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoriaId,Title,Description")] Categoria categoria)

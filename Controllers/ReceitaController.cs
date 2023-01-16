@@ -28,7 +28,6 @@ namespace ReceitaMx.Controllers
             return View(await appDbContext.ToListAsync());
         }
 
-  
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Receitas == null)
@@ -74,8 +73,7 @@ namespace ReceitaMx.Controllers
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId", request.CategoriaId);
             return View();
         }
-
-    
+        
         public async Task<IActionResult> Edit(int id)
         {
             if (id == null || _context.Receitas == null)

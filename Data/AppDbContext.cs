@@ -10,7 +10,9 @@ public class AppDbContext : IdentityDbContext
     public AppDbContext(DbContextOptions options) : base(options)
     {
     }
-
+    
+    // Tabela receitas
     public DbSet<Receita> Receitas { get; set; }
+    // Tabela categorias
     public DbSet<Categoria> Categorias { get; set; }
 }

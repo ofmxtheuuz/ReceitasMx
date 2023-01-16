@@ -21,7 +21,7 @@ namespace ReceitaMx.Controllers
             _context = context;
         }
 
-        // GET: Receita
+        
         public async Task<IActionResult> Index()
         {
             var appDbContext = _context.Receitas.Include(r => r.Categoria);
@@ -73,7 +73,7 @@ namespace ReceitaMx.Controllers
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId", request.CategoriaId);
             return View();
         }
-
+        
         public async Task<IActionResult> Edit(int id)
         {
             if (id == null || _context.Receitas == null)
@@ -96,10 +96,7 @@ namespace ReceitaMx.Controllers
                 CategoriaId = receita.CategoriaId
             });
         }
-
-        // POST: Receita/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(EditReceitaRequest request)
@@ -140,7 +137,7 @@ namespace ReceitaMx.Controllers
             });
         }
 
-        // GET: Receita/Delete/5
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Receitas == null)
